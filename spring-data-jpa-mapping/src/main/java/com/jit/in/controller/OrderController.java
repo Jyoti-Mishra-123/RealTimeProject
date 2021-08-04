@@ -3,6 +3,8 @@ package com.jit.in.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,8 +26,8 @@ public class OrderController {
 	private ProductRepo prepo;
 	
 	@PostMapping(value = "/placeOrder",consumes= {("application/json")})
-	public Customer placeOrder(@RequestBody OrderRequest od) {
-		return crepo.save(od.getCustomer());
+	public ResponseEntity<Customer> placeOrder(@RequestBody OrderRequest od) {
+		return new ResponseEntity<>(crepo.save(od.getCustomer()),HttpStatus.CREATED);
 		
 	}
 	

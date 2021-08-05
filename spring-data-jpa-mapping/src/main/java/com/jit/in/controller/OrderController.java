@@ -37,7 +37,7 @@ public class OrderController {
 	
 	@GetMapping("/findAllOrders")
 	public ResponseEntity<List<Customer>> findAllOrders(){
-		return new ResponseEntity<>(crepo.findAll(),HttpStatus.OK);
+		return new ResponseEntity<>(service.findAllCustOrders(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/getInfo")

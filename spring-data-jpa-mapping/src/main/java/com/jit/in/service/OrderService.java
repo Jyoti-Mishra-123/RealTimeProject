@@ -21,4 +21,9 @@ public class OrderService {
 		return crepo.save(cust);
 	}
 
+                public List<Customer> findAllCustOrders(){
+
+                                  return crepo.findAll();
+}
+
 }

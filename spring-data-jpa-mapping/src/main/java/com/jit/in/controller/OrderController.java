@@ -15,9 +15,13 @@ import com.jit.in.dto.OrderResponse;
 import com.jit.in.entity.Customer;
 import com.jit.in.repo.CustomerRepo;
 import com.jit.in.repo.ProductRepo;
+import com.jit.in.service.OrderService;
 
 @RestController
 public class OrderController {
+	
+	@Autowired
+	private OrderService service;
 	
 	@Autowired
 	private CustomerRepo crepo;
@@ -27,7 +31,7 @@ public class OrderController {
 	
 	@PostMapping(value = "/placeOrder",consumes= {("application/json")})
 	public ResponseEntity<Customer> placeOrder(@RequestBody OrderRequest od) {
-		return new ResponseEntity<>(crepo.save(od.getCustomer()),HttpStatus.CREATED);
+		return new ResponseEntity<>(service.AddCustomer(od.getCustomer()),HttpStatus.CREATED);
 		
 	}
 	

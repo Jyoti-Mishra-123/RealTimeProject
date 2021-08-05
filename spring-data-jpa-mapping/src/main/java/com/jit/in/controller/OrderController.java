@@ -32,18 +32,18 @@ public class OrderController {
 	}
 	
 	@GetMapping("/findAllOrders")
-	public List<Customer> findAllOrders(){
-		return crepo.findAll();
+	public ResponseEntity<List<Customer>> findAllOrders(){
+		return new ResponseEntity<>(crepo.findAll(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/getInfo")
-	public List<String[]> getJoinInformation(){
-		return crepo.getJoinInformation();
+	public ResponseEntity<List<String[]>> getJoinInformation(){
+		return new ResponseEntity<>(crepo.getJoinInformation(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/getInformation")
-	public List<OrderResponse> getJoinData(){
-		return crepo.getJoinInfo();
+	public ResponseEntity<List<OrderResponse>> getJoinData(){
+		return new ResponseEntity<>(crepo.getJoinInfo(),HttpStatus.OK);
 	}
 	
 

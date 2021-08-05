@@ -30,15 +30,18 @@ public class OrderController {
 	
 	@Autowired
 	private ProductRepo prepo;
+
+                Logger logger = LoggerFactory.getLogger(OrderController.class);
 	
 	
-	 Logger logger = LoggerFactory.getLogger(OrderController.class);
+	 
 
 	
 	@PostMapping(value = "/placeOrder",consumes= {("application/json")})
 	public ResponseEntity<Customer> placeOrder(@RequestBody OrderRequest od) {
+ 
 		logger.debug("placeOrder method execution started");
-		return new ResponseEntity<>(service.AddCustomer(od.getCustomer()),HttpStatus.CREATED);
+   	return new ResponseEntity<>(service.AddCustomer(od.getCustomer()),HttpStatus.CREATED);
 		
 	}
 	

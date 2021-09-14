@@ -45,7 +45,7 @@ public class OrderController {
    	return new ResponseEntity<>(service.AddCustomer(od.getCustomer()),HttpStatus.CREATED);
 		
 	}
-	
+	//demo
 	@GetMapping("/findCustomer/{id}")
 	public ResponseEntity<Customer> findCustById(@PathVariable Integer id){
 		Customer customer = service.findCustomer(id);
